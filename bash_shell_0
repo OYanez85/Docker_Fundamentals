@@ -1,0 +1,96 @@
+sudo docker run --name MyUbuntu ubuntu:latest
+#sudo docker rm MyUbuntu
+
+sudo docker ps -a
+
+sudo docker run -it --name MyUbuntu1 ubuntu:latest
+
+ls 
+
+#If you just want to detach but keep the container running, use Ctrl+p + Ctrl+q.
+
+sudo docker attach MyUbuntu1
+
+# Ctrl+p + Ctrl+q.
+
+sudo docker exec MyUbuntu1 pwd
+
+sudo docker exec MyUbuntu1 echo $PATH
+
+sudo docker rm -f nameofthecontainertoberemoved
+
+### 4th Task Creting a customized Ubuntu image
+
+sudo docker run -it --name MyNginx ubuntu:latest
+
+ls
+
+which nginx
+
+apt-get update
+
+apt-get install nginx
+
+which nginx
+
+apt-get install curl 
+
+service nginx start
+
+curl http//localhost:80
+
+sudo docker commit MyNginx oscar85/oscarinx
+
+sudo docker image ls
+
+sudo docker run -it --name MyNginx1 oscar85/oscarinx
+
+which nginx
+
+###5th Task Share customized imaged in DockerHub
+
+sudo docker image ls
+
+sudo docker login
+
+sudo docker push oscar85/oscarinx
+
+### Creating a complex customised image from a container
+
+sudo docker run -d --name MyApp nginx
+
+sudo docker exec -it MyApp bash
+
+curl http://localhost:80
+
+cd /usr/share/nginx
+
+ls
+
+cd html
+
+ls
+
+app-get update
+
+app-get install vim
+
+vi index.html
+#to modify html double.click with the mouse
+#to exit the html go to the last line and type  :wq! + Click Enter
+
+Ctrl+P + Ctrl+Q
+
+sudo docker stop MyApp
+
+sudo docker exec -it MyApp bash
+
+curl http://localhost.80
+
+#crtl+p + ctrl+q 
+
+sudo docker commit MyApp oscar85/myapp
+
+sudo docker push
+
+sudo docker push oscar85/myapp

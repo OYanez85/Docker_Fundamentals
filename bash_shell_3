@@ -1,0 +1,39 @@
+### Creating a complex customised image from a container
+
+sudo docker run -d --name MyApp nginx
+
+sudo docker exec -it MyApp bash
+
+curl http://localhost:80
+
+cd /usr/share/nginx
+
+ls
+
+cd html
+
+ls
+
+app-get update
+
+app-get install vim
+
+vi index.html
+#to modify html double.click with the mouse
+#to exit the html go to the last line and type  :wq! + Click Enter
+
+Ctrl+P + Ctrl+Q
+
+sudo docker stop MyApp
+
+sudo docker exec -it MyApp bash
+
+curl http://localhost.80
+
+#crtl+p + ctrl+q 
+
+sudo docker commit MyApp oscar85/myapp
+
+sudo docker push
+
+sudo docker push oscar85/myapp

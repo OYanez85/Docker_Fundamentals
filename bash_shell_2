@@ -1,0 +1,8 @@
+###5th Task Share customized imaged in DockerHub
+
+sudo docker image ls
+
+sudo docker login
+
+sudo docker push oscar85/oscarinx
+
